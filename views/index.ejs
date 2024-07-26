@@ -22,7 +22,7 @@
                     <div class="task w-72 px-3 py-4 rounded-md bg-zinc-800">
                         <h1 class="text-white text-3xl tracking-tighter"><%= task.title %></h1>
                         <p class="text-white mt-2"><%= task.details %></p>
-                     
+                        <a class="text-blue-500 inline-block mt-3" href="/file/<%= task.title %>">Read More</a>
                     </div>
                 <% }) %>
             <% } else { %>

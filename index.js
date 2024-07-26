@@ -37,6 +37,20 @@ app.post('/create', function(req, res) {
     });
 });
 
+app.get('/file/:title', function(req, res) {
+    const fileName = req.params.title + '.txt';
+    const filePath = path.join(__dirname, 'files', fileName);
+
+    fs.readFile(filePath, 'utf8', function(err, content) {
+        if (err) {
+            console.error(err);
+            return res.status(404).send('Task not found');
+        }
+
+        res.render('task', { task: { title: req.params.title, details: content } });
+    });
+});
+
 app.listen(3000, function() {
     console.log('Server is running on port 3000');
 });
